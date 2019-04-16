@@ -45,12 +45,14 @@ si intrecciano.
 
 In particolare, domandiamoci:
 
-* la blockchain e gli smart contract sono davvero la panacea di tutti i mali?
-* quando è opportuno usare o meno uno smart contract?
+* qual è il rapporto tra accordo, forma ed esecuzione negli smart contract;
+* quali sono (alcuni) problemi che potrebbero risolvere
+    * trascrizione
+    * esecuzione
 * quali sono (alcune) problematiche che comporta
-    * e se uno smart contract è nullo?
-    * un giudice deve poter emettere una smart sentence?
-* le opportunità nella PA
+    * che rimedi per le invalidità degli smart contract
+    * i diversi piani tra *esecutività* nella blockchain ed *esecutività* delle sentenze
+* una rivoluzione nella PA?
 
 **durata stimata**: `30 minuti`
 
