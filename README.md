@@ -1,68 +1,40 @@
-# Blockchain e Smart contract per giuristi 3.0
+# Blockchain e Smart Contract per giuristi 3.0
 
-Lo scopo dell'incontro è fornire una panoramica globale su *Blockchain* e *Smart contract*, rivolgendosi specificamente ai giovani giuristi.
+Lo scopo di questo documento è fornire uno strumentario di
+base per consentire ai giuristi di comprendere, a grandi
+linee, la tecnologia che sta dietro alla blockchain ed agli
+smart contract.
 
-In particolare, l'obiettivo è quello di fornire uno strumentario di base per comprendere **realmente**
-ciò di cui media e addetti ai lavori del diritto e dell'informatica parlano senza sosta.
+Una comprensione tecnico-informatica, seppur non approfondita, è fondamentale per capire in un primo momento
+la reale portata di ciò di cui si parla, e in un secondo
+momento per poter trarre conclusioni di carattere dogmatico-giuridico in maniera più consapevole.
 
-Tenendo a mente che i destinatari principali avranno poca o nessuna competenza in ambito informatico,
-l'incontro avrà un carattere progressivo per rendere comprensibili a tutti i concetti che stanno alla
-base della frenesia tecnologica del momento.
+Rivolgendosi a non addetti ai lavori (informatici) saranno fatte delle enormi semplificazioni. Alcuni aspetti, sebbene
+fondamentali per la tecnologia, saranno solo accennati rimandando a una approfondimento personale l'esplorazione di tali concetti.
 
-L'idea è di dividere l'incontro in tre parti.
+Iniziamo dalle basi.
 
-Ogni parte dell'incontro sarà **interattiva**; tutti i presenti potranno **sperimentare** durante la conferenza ciò di cui si parla.
+## Cos'è un HASH
 
-## Parte I: cos'è la Blockchain
+In parole povere, una [funzione di hashing](https://en.wikipedia.org/wiki/Hash_function) è una funzione crittografica per trasformare dei dati in input di qulunque dimensione in un dato in output di dimensione fissa. Per dati intendiamo `bit`.
 
-In **parole semplici** e con **esempi pratici**:
+In input può esserci qualsiasi dato informatico rappresentato in `bit` (file di testo, file video, audio ecc.) e l'output sarà una sequenza di `bit` di lunghezza fissa che cambierà al cambiare dell'input. Esistono diverse funzioni di hashing. Guardiamo il seguente esempio usando la funzione `SHA256`
 
-* cos'è un hash e perché è importante
-* come viene utilizzato per costruire una blockchain 
-* la valuta virtuale: Bitcoin ed Ethereum
-* esploriamo la blockchain Ethereum con [etherscan](https://etherscan.io)
-* scambiamoci (finti) ether con [metamask](https://metamask.io)
+**esempio**
 
-**durata stimata**: `45-60 minuti`
-
-## Parte II: gli Smart contract
-
-In **parole semplici** e con **esempi pratici**:
-
-* cos'è uno smart contract
-* scriviamo un semplice smart contract in [Solidity](https://solidity.readthedocs.io/en/v0.5.6/)
-con [Remix](http://remix.ethereum.org)
-* sperimentiamo con lo smart contract
-* uno smart contract un po' più avanzato: **votiamo con la blockchain**
-
-**durata stimata**: `45-60 minuti`
-
-## Parte III: domande e risposte (?): considerazioni finali tra codice civile e codice sorgente
-
-Dopo aver esplorato nella pratica cos'è la *blockchain* e cosa sono gli *smart contract*, proviamo
-a tirare le fila del discorso e indaghiamo collettivamente su dove e come codice sorgente e codice civile
-si intrecciano.
-
-In particolare, domandiamoci:
-
-* qual è il rapporto tra accordo, forma ed esecuzione negli smart contract;
-* quali sono (alcuni) problemi che potrebbero risolvere
-    * trascrizione
-    * esecuzione
-* quali sono (alcune) problematiche che comporta
-    * che rimedi per le invalidità degli smart contract
-    * i diversi piani tra *esecutività* nella blockchain ed *esecutività* delle sentenze
-* una rivoluzione nella PA?
-
-**durata stimata**: `30 minuti`
+| INPUT | FUNZIONE  | OUTPUT                                                           |
+|-------|-----------|------------------------------------------------------------------|
+| ciao  | -sha256-> | b133a0c0e9bee3be20163d2ad31d6248db292aa6dcb1ee087a2aa50e0fc75ae2 |
+| ciao! | -sha256-> | eefe92e093e75943262d57ef18211898f0b29f2f80c4d0e5bee36a63bdb13c30 |
+| Ciao! | -sha256-> | 6119ce5b522dbbbcf1f5927eeab860165ad131e1c6b76aead9c0088a9ef85dd3 |
+| Ciao  | -sha256-> | 25c73520e69f4bf229811e8e46ffe7d80471544b9bee15ed25044b86be4115ad |
 
 
-## Note tecniche
+* `SHA256` sta per Secure Hash Algorithm
+* il risultato in output è sempre una sequenza di 256 bit (=32 byte)
+* se cambia anche solo un `bit` in input, il risultato sarà sempre e radicalmente diverso
+* la funzione è `deterministica`: lo stesso input produrrà sempre lo stesso output
+* la funzione è `unidirezionale`: non è possibile dall'`hash` risalire all'input
 
-Per rendere la conferenza realmente interattiva:
-
-* verrà dato accesso alla repository su github con tutti i contenuti presentati
-* verrà istanziata una chatroom alla quale i presenti potranno accedere con i propri laptop o smarphone per scambiarsi link, indirizzi dei portafogli e copincollare pezzi di codice sorgente
-* verrà istanziata una lavagna digitale visibile a tutti i presenti dai propri laptop o smartphone
-* i presenti muniti di laptop saranno invitati a installare l'estensione del browser [metamask](https://metamask.io) per interagire con la blockchain ethereum
-* sarà messa a disposizione una `DApp` di demo con un sistema di votazione (Parte II, ultimo punto)
+Esistono diverse funzioni di hashing. Potete trovare una demo per provare voi stessi su
+[questo sito](https://anders.com/blockchain/hash.html)
