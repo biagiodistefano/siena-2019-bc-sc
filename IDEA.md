@@ -1,4 +1,13 @@
-# Blockchain e Smart contract per giuristi 3.0
+# <p align="center"> Blockchain e Smart contract per giuristi 3.0 </p>
+#### <p align="center"> Martedì 7 maggio ore 15.30 <br> Polo Universitario Mattioli - Sala seminari e conferenze <br> Organizzato da [ELSA Siena](https://www.facebook.com/ELSASienaOfficial/)</p>
+_________________________________
+
+## Interventi
+
+* **<span style="font-variant:small-caps;">Biagio Distefano</span>** per la parte tecnica (I-II)
+* **<span style="font-variant:small-caps;">Prof. Stefano Pagliantini</span>** per la parte giuridica (III)
+
+## L'incontro
 
 Lo scopo dell'incontro è fornire una panoramica globale su *Blockchain* e *Smart contract*, rivolgendosi specificamente ai giovani giuristi.
 
@@ -9,7 +18,7 @@ Tenendo a mente che i destinatari principali avranno poca o nessuna competenza i
 l'incontro avrà un carattere progressivo per rendere comprensibili a tutti i concetti che stanno alla
 base della frenesia tecnologica del momento.
 
-L'idea è di dividere l'incontro in tre parti.
+L'incontro sarà diviso in tre parti.
 
 Ogni parte dell'incontro sarà **interattiva**; tutti i presenti potranno **sperimentare** durante la conferenza ciò di cui si parla.
 
@@ -18,7 +27,8 @@ Ogni parte dell'incontro sarà **interattiva**; tutti i presenti potranno **sper
 In **parole semplici** e con **esempi pratici**:
 
 * cos'è un hash e perché è importante
-* come viene utilizzato per costruire una blockchain 
+* chiavi crittografiche pubbliche e private
+* come queste tecnologie permettono la blockchain 
 * la valuta virtuale: Bitcoin ed Ethereum
 * esploriamo la blockchain Ethereum con [etherscan](https://etherscan.io)
 * scambiamoci (finti) ether con [metamask](https://metamask.io)
@@ -39,8 +49,7 @@ con [Remix](http://remix.ethereum.org)
 
 ## Parte III: domande e risposte (?): considerazioni finali tra codice civile e codice sorgente
 
-Dopo aver esplorato nella pratica cos'è la *blockchain* e cosa sono gli *smart contract*, proviamo
-a tirare le fila del discorso e indaghiamo collettivamente su dove e come codice sorgente e codice civile
+Dopo aver esplorato nella pratica cos'è la *blockchain* e cosa sono gli *smart contract*, proviamo a tirare le fila del discorso e indaghiamo collettivamente su dove e come codice sorgente e codice civile
 si intrecciano.
 
 In particolare, domandiamoci:
@@ -54,15 +63,17 @@ In particolare, domandiamoci:
     * i diversi piani tra *esecutività* nella blockchain ed *esecutività* delle sentenze
 * una rivoluzione nella PA?
 
-**durata stimata**: `30 minuti`
+**durata stimata**: `30-45 minuti`
 
 
 ## Note tecniche
 
 Per rendere la conferenza realmente interattiva:
 
-* verrà dato accesso alla repository su github con tutti i contenuti presentati
+* i partecipanti sono invitati a portare il proprio laptop
+* verrà dato accesso alla repository su GitHub con tutti i contenuti presentati
 * verrà istanziata una chatroom alla quale i presenti potranno accedere con i propri laptop o smarphone per scambiarsi link, indirizzi dei portafogli e copincollare pezzi di codice sorgente
 * verrà istanziata una lavagna digitale visibile a tutti i presenti dai propri laptop o smartphone
 * i presenti muniti di laptop saranno invitati a installare l'estensione del browser [metamask](https://metamask.io) per interagire con la blockchain ethereum
-* sarà messa a disposizione una `DApp` di demo con un sistema di votazione (Parte II, ultimo punto)
+* sarà messa a disposizione una `dApp` come demo di applicazione reale
+(Parte II, ultimo punto)
