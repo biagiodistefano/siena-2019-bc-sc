@@ -1,3 +1,4 @@
+spinner = `<span class="loader"><i class="fa-li fa fa-spinner fa-spin"></i><span>`;
 
 function loadPra() {
     PRA.pra(function (err, res) {
@@ -60,7 +61,7 @@ function loadCar(targa) {
             var inVendita = auto[3];
             var miaAuto = currentAccount == proprietario;
             var cardAuto = $(`
-                <div class="card" style="width: 18rem;">
+                <div class="card mb-4" style="width: 18rem;">
                     <img class="card-img-top" src="/img/${targa}.png" alt="AUTOMOBILE" onerror="this.onerror=null;this.src='img/generic.png';">
                     <div class="card-body">
                         <h5 class="card-title">Targa: ${targa}</h5>
@@ -94,13 +95,14 @@ function loadCar(targa) {
                 button.text(`Acquista per ${web3.fromWei(prezzo, "ether")} ETH`);
                 button.removeAttr("disabled");
             }
-            $("#registroAuto").find(".card-group").append(cardAuto);
+            $("#registroAuto").find(".card-holder").append(cardAuto);
         }
     });
 };
 
-function mettiInVendita(targa, prezzo) {
+function mettiInVendita(targa, prezzo, btn) {
     if (!isNaN(prezzo)) {
+        btn.attr("disabled", "true");
         PRA.mettiInVendita(targa, prezzo, function (err, res) {
             if (!err) {
                 eventMessaInVendita.watch(function (err, res) {
@@ -117,13 +119,15 @@ function mettiInVendita(targa, prezzo) {
             } else {
                 alert(err);
             }
+            btn.removeAttr("disabled");
         });
     } else {
         alert("Prezzo inserito non valido!");
     }
 }
 
-function togliDallaVendita(targa) {
+function togliDallaVendita(targa, btn) {
+    btn.attr("disabled", "true");
     PRA.togliDallaVendita(targa, function (err, res) {
         if (!err) {
             eventNonInVendita.watch(function (err, res) {
@@ -140,11 +144,13 @@ function togliDallaVendita(targa) {
         } else {
             alert(err);
         }
+        btn.removeAttr("disabled");
     });
 }
 
-function acquista(targa, prezzo) {
-    PRA.acquista(targa, {value: prezzo}, function (err, res) {
+function acquista(targa, prezzo, btn) {
+    btn.attr("disabled", "true");
+    PRA.acquista(targa, { value: prezzo }, function (err, res) {
         if (!err) {
             eventAcquisto.watch(function (err, res) {
                 if (!err) {
@@ -160,6 +166,7 @@ function acquista(targa, prezzo) {
         } else {
             alert(err);
         }
+        btn.removeAttr("disabled");
     });
 }
 
@@ -182,11 +189,13 @@ window.addEventListener('load', () => {
 });
 
 
-function nuovaImmatricolazione(nuovaTarga, nuovoProprietario) {
+function nuovaImmatricolazione(nuovaTarga, nuovoProprietario, btn) {
     PRA.nuovaImmatricolazione(nuovaTarga, nuovoProprietario, function (err, res) {
         if (err) {
             alert(err);
         } else {
+            btn.attr("disabled", "true");
+            btn.append($(spinner));
             eventRegistrazione.watch(function (err, res) {
                 if (!err) {
                     if (res.args.targa == nuovaTarga) {
@@ -196,6 +205,8 @@ function nuovaImmatricolazione(nuovaTarga, nuovoProprietario) {
                     }
                 } else {
                     console.log(err);
+                    btn.removeAttr("disabled");
+                    btn.remove($("i"));
                 }
             });
         }
@@ -206,7 +217,7 @@ function nuovaImmatricolazione(nuovaTarga, nuovoProprietario) {
 $(document).on('click', '#btnImmatricolazione', function () {
     var nuovaTarga = $("#nuovaTarga").val().toUpperCase();
     var nuovoProprietario = $("#nuovoProprietario").val();
-    nuovaImmatricolazione(nuovaTarga, nuovoProprietario);
+    nuovaImmatricolazione(nuovaTarga, nuovoProprietario, $(this));
 });
 
 $(document).on('click', ".scCall", function () {
@@ -216,11 +227,11 @@ $(document).on('click', ".scCall", function () {
     console.log(action, targa);
     if (action === "mettiInVendita") {
         var nuovoPrezzo = parseInt($(`#inputPrezzo_${targa}`).val(), 10);
-        mettiInVendita(targa, nuovoPrezzo);
+        mettiInVendita(targa, nuovoPrezzo, $(this));
     } else if (action === "togliDallaVendita") {
-        togliDallaVendita(targa);
+        togliDallaVendita(targa, $(this));
     } else if (action === "acquista") {
-        acquista(targa, prezzo);
+        acquista(targa, prezzo, $(this));
     } else {
         alert("Unkown action " + action);
     }
