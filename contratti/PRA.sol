@@ -1,9 +1,21 @@
+/*
+ATTENZIONE:
+QUESTO SMART CONTRACT È FRUTTO DI UNA DRASTICA SEMPLIFICAZIONE
+AL FINE DI RENDERLO COMPRENSIBILE AI NON ADDETTI AI LAVORI.
+NON RAPPRESENTA UN CASO D'USO REALE.
+NON ESEGUIRE IL DEPLOYMENT SULLA RETE ETHEREUM PRINCIPALE PER NESSUN MOTIVO.
+LO SCOPO PERSEGUITO DA QUESTO CONTRATTO SI RAGGIUNGE
+ATTRAVERSO L'IMPLEMENTAZIONE DI TOKEN ERC-721.
+Per saperne di più: http://erc721.org/
+*/
+
+
 pragma solidity ^0.5.7; 
 
 
-contract CompravenditaPra {
+contract PRA {
     
-    address public pra;
+    address payable public pra;
     
     struct Automobile {
         string targa;
@@ -16,6 +28,8 @@ contract CompravenditaPra {
     uint constant oneEther = 1 ether;
     
     mapping (string => Automobile) public registro;
+    uint public numeroAuto = 0;
+    string[] public targheLUT;
     event Registrazione(string targa, address proprietario);
     event Acquisto(address compratore, address venditore, uint prezzo);
     event MessaInVendita(string targa, uint prezzo);
@@ -35,9 +49,11 @@ contract CompravenditaPra {
         _;
     }
     
-    function nuovaAuto(string memory targa, address payable proprietario) public soloPra {
+    function nuovaImmatricolazione(string memory targa, address payable proprietario) public soloPra {
         require(!registro[targa].registrata, "L'Automobile esiste già");
         registro[targa] = Automobile(targa, proprietario, 0, false, true);
+        targheLUT.push(targa);
+        numeroAuto++;
         emit Registrazione(targa, proprietario);
     }
     
@@ -68,5 +84,12 @@ contract CompravenditaPra {
         venditore.transfer(msg.value);
         emit Acquisto(compratore, venditore, msg.value);
     }
+
+    function chiudi() public soloPra {
+        selfdestruct(pra);
+    }
     
 }
+
+// contract's address on Ropsten: 0xD9c453dC11773866e4f89b65A34164ACfb4C2dab
+// contract's address on local rpc: 0x61E279Dc78D66bB722E054bE5233381f4e3a6fF5
