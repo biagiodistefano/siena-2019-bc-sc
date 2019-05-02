@@ -1,11 +1,17 @@
-# <p align="center"> Blockchain e Smart contract per giuristi 3.0 </p>
-#### <p align="center"> Martedì 7 maggio ore 15.30 <br> Polo Universitario Mattioli - Sala seminari e conferenze <br> Organizzato da [ELSA Siena](https://www.facebook.com/ELSASienaOfficial/)</p>
+# Blockchain e Smart contract per giuristi 3.0
+
+> Martedì 7 maggio ore 15.30
+
+> Polo Universitario Mattioli - Sala seminari e conferenze
+
+> Organizzato da [ELSA Siena](https://www.facebook.com/ELSASienaOfficial/)
+
 _________________________________
 
 ## Interventi
 
-* **<span style="font-variant:small-caps;">Biagio Distefano</span>** per la parte tecnica (I-II)
-* **<span style="font-variant:small-caps;">Prof. Stefano Pagliantini</span>** per la parte giuridica (III)
+* **Biagio Distefano** per la parte tecnica (I-II)
+* **Prof. Stefano Pagliantini** per la parte giuridica (III)
 
 ## L'incontro
 
