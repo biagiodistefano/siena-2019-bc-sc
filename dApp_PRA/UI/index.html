@@ -1,183 +1,42 @@
 <html>
- 
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Smart PRA demo">
-  <meta name="author" content="Biagio Distefano">
-  <meta charset="utf-8"/>
-  <title>Smart Pra</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Smart PRA demo">
+    <meta name="author" content="Biagio Distefano">
+    <meta charset="utf-8" />
+    <title>Smart Pra</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="src/main.js"></script>
 </head>
+
 <body>
     <div class="container">
         <h1 class="text-center">Smart PRA</h1>
         <div id="formImmatricolazione" style="display: none;">
             <h3 class="text-center">Nuova Immatricolazione</h3>
-            
-                <div class="form-group-sm">
-                    <label for="nuovaTarga">Targa</label>
-                    <input type="text" class="form-control" id="nuovaTarga" placeholder="Nuova targa">
-                </div>
-                <div class="form-group">
-                    <label for="nuovoProprietario">Proprietario</label>
-                    <input type="text" class="form-control" id="nuovoProprietario" placeholder="Indirizzo proprietario">
-                </div>
-                <button class="btn-primary" id="btnImmatricolazione">Salva</button>
+
+            <div class="form-group-sm">
+                <label for="nuovaTarga">Targa</label>
+                <input type="text" class="form-control" id="nuovaTarga" placeholder="Nuova targa">
+            </div>
+            <div class="form-group">
+                <label for="nuovoProprietario">Proprietario</label>
+                <input type="text" class="form-control" id="nuovoProprietario" placeholder="Indirizzo proprietario">
+            </div>
+            <button class="btn-primary" id="btnImmatricolazione">Salva</button>
         </div>
         <div id="registroAuto">
             <h3 class="text-center">Registro Auto</h3>
             <div class="card-group"></div>
         </div>
     </div>
-    <!-- Mai il mondo del web ha visto simili oscenità. Continuate a vostro rischio e pericolo. -->
-    <script>
-    window.addEventListener('load', () => {
-    if (typeof web3 !== 'undefined') {
-        web3 = new Web3(web3.currentProvider);
-        var ABI = [{"constant":true,"inputs":[],"name":"pra","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"targheLUT","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"string"}],"name":"registro","outputs":[{"name":"targa","type":"string"},{"name":"proprietario","type":"address"},{"name":"prezzo","type":"uint256"},{"name":"inVendita","type":"bool"},{"name":"registrata","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numeroAuto","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"targa","type":"string"},{"indexed":false,"name":"proprietario","type":"address"}],"name":"Registrazione","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"compratore","type":"address"},{"indexed":false,"name":"venditore","type":"address"},{"indexed":false,"name":"prezzo","type":"uint256"}],"name":"Acquisto","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"targa","type":"string"},{"indexed":false,"name":"prezzo","type":"uint256"}],"name":"MessaInVendita","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"targa","type":"string"}],"name":"NonInVendita","type":"event"},{"constant":false,"inputs":[{"name":"targa","type":"string"},{"name":"proprietario","type":"address"}],"name":"nuovaImmatricolazione","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"targa","type":"string"},{"name":"prezzo","type":"uint256"}],"name":"mettiInVendita","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"targa","type":"string"}],"name":"togliDallaVendita","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"targa","type":"string"}],"name":"acquista","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"chiudi","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}];
-        ContractPRA = web3.eth.contract(ABI);
-        PRA = ContractPRA.at("0xd9c453dc11773866e4f89b65a34164acfb4c2dab");
-        var pra;
-        var currentAccount;
-        PRA.pra(function(err, res){
-            if (err) {
-                console.log("Error " + err);
-            } else {
-                pra = res;
-                console.log("Indirizzo PRA: " + res)
-                web3.eth.getAccounts(function(err, accounts){
-                    if (!err){
-                        currentAccount = accounts[0];
-                        console.log("Account default: " + currentAccount);
-
-                        if (currentAccount === pra) {
-                            console.log(pra, currentAccount);
-                            $("#formImmatricolazione").show();
-                            console.log("mostro");
-                        } else {
-                            $("#formImmatricolazione").hide();
-                            console.log("nascondo");
-                        };
-
-                        $('#btnImmatricolazione').on("click", function(){
-                            var nuovaTarga = $("#nuovaTarga").val();
-                            var nuovoProprietario = $("#nuovoProprietario").val();
-                            PRA.nuovaImmatricolazione(nuovaTarga, nuovoProprietario, function(err, res){
-                                if (err){
-                                    alert(err);
-                                } else {
-                                    alert("Auto registrata correttamente!");
-                                }
-                            });
-                        });
-
-                        PRA.numeroAuto(function(err, res){
-            if (!err) {
-                var numeroAuto = res.toNumber();
-                for (var i=0; i<numeroAuto; i++) {
-                    PRA.targheLUT(i, function(err, targa){
-                        if (!err) {
-                            PRA.registro(targa, function(err, auto){
-                                if (!err) {
-                                    var targa = auto[0];
-                                    var proprietario = auto[1];
-                                    var prezzo = auto[2].toNumber();
-                                    var inVendita = auto[3];
-                                    var miaAuto = currentAccount == proprietario;
-                                    var cardAuto = $(`
-                                    <div class="card" style="width: 18rem;">
-                                        <img class="card-img-top" src="/img/${targa}.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Targa: ${targa}</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Proprietario: ${proprietario}</h6>
-                                            <div class="input-group">
-                                                <button data-targa="${targa}" data-prezzo="${prezzo}" disabled="true" class="btn btn-danger">Non in vendita</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    `);
-                                    var button = cardAuto.find("button");
-                                    if (miaAuto) {
-                                        var subTitle = cardAuto.find("h6");
-                                        subTitle.text(`Proprietario (Tu): ${proprietario}`)
-                                        if (inVendita){
-                                            button.attr("class", "btn btn-warning");
-                                            button.text(`Rimuovi dalla vendita (prezzo attuale: ${web3.fromWei(prezzo, "ether")} ETH)`);
-                                            button.removeAttr("disabled");
-                                            button.on("click", function(){
-                                                PRA.togliDallaVendita(button.data("targa"), function(err, res){
-                                                    if (!err){
-                                                        alert("Auto tolta dalla vendita!");
-                                                        location.reload();
-                                                    } else {
-                                                        alert(err);
-                                                    }
-                                                });
-                                            })
-                                        } else {
-                                            boxPrezzo = $(`<input type="number" class="form-control" placeholder="Prezzo in ETH">`);
-                                            button.after(boxPrezzo);
-                                            button.attr("class", "btn btn-primary");
-                                            button.text("Metti in vendita");
-                                            button.removeAttr("disabled");
-                                            button.on("click", function(){
-                                                var nuovoPrezzo = parseInt(boxPrezzo.val(), 10);
-                                                PRA.mettiInVendita(button.data("targa"), nuovoPrezzo, function(err, res){
-                                                    if (!err){
-                                                        alert(`Auto messa in vendita a ${nuovoPrezzo} ETH !`);
-                                                        location.reload();
-                                                    } else {
-                                                        alert(err);
-                                                    }
-                                                });
-                                            })
-                                        }
-                                    } else {
-                                        if (inVendita) {
-                                            button.attr("class", "btn btn-success");
-                                            button.text(`Acquista per ${web3.fromWei(prezzo, "ether")} ETH`);
-                                            button.removeAttr("disabled");
-                                            button.on("click", function(){
-                                                var prezzoAcquisto = parseInt(button.data("prezzo"), 10);
-                                                PRA.acquista(button.data("targa"), {value: prezzoAcquisto}, function(err, res){
-                                                    if (!err){
-                                                        alert(`Auto acquistata per ${web3.fromWei(prezzoAcquisto, "ether")} ETH !`);
-                                                        location.reload();
-                                                    } else {
-                                                        alert(err);
-                                                    }
-                                                });
-                                            })
-                                        }
-                                    }
-
-                                    cardAuto.appendTo($('#registroAuto .card-group'));
-                                } else {
-                                    console.log("Non riesco a caricare le auto")
-                                }
-                            });
-                        } else {
-                            console.log("Non riesco a iterare le targhe")
-                        }
-                    });
-                }
-            } else {
-                console.log("Non riesco a contare le auto")
-            }
-        });
-
-                    } else {
-                        console.log("Non riesco a trovare l'account!");
-                    }
-                });
-            }
-        });
-    } else {
-        alert("Devi installare MetaMask per usare questa dApp!")
-    }
-});
-    </script>
 </body>
+
 </html>
