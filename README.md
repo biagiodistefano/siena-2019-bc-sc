@@ -5,7 +5,7 @@ Lo scopo dell'incontro è fornire una panoramica globale su *Blockchain* e *Smar
 In particolare, l'obiettivo è quello di fornire uno strumentario di base per comprendere **realmente**
 ciò di cui media e addetti ai lavori del diritto e dell'informatica parlano senza sosta.
 
-Tenendo a mente che i destinatari principali avranno poca o nessuna competenza in ambito informatico,
+Tenendo a mente che i destinatari principali avranno poche o limitate competenze in ambito informatico,
 l'incontro avrà un carattere progressivo per rendere comprensibili a tutti i concetti che stanno alla
 base della frenesia tecnologica del momento.
 
