@@ -38,3 +38,4 @@ base della frenesia tecnologica del momento.
 * [Bitcoin Whitepaper](https://bitcoin.org/bitcoin.pdf?)
 * [Ethereum Whitepaper](https://github.com/ethereum/wiki/wiki/White-Paper)
 * [Solidity Documentation](https://solidity.readthedocs.io/)
+* [Token ERC-721](http://erc721.org/)
