@@ -118,8 +118,8 @@ function mettiInVendita(targa, prezzo, btn) {
                 });
             } else {
                 alert(err);
+                btn.removeAttr("disabled");
             }
-            btn.removeAttr("disabled");
         });
     } else {
         alert("Prezzo inserito non valido!");
@@ -143,8 +143,8 @@ function togliDallaVendita(targa, btn) {
             });
         } else {
             alert(err);
+            btn.removeAttr("disabled");
         }
-        btn.removeAttr("disabled");
     });
 }
 
@@ -165,8 +165,8 @@ function acquista(targa, prezzo, btn) {
             });
         } else {
             alert(err);
+            btn.removeAttr("disabled");
         }
-        btn.removeAttr("disabled");
     });
 }
 
@@ -206,7 +206,6 @@ function nuovaImmatricolazione(nuovaTarga, nuovoProprietario, btn) {
                 } else {
                     console.log(err);
                     btn.removeAttr("disabled");
-                    btn.remove($("i"));
                 }
             });
         }
