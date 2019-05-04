@@ -41,10 +41,12 @@ contract Compravendita {
         require(inVendita == true, "Non in vendita");
         require(msg.sender != proprietario, "Solo chi non è proprietario può acquistare");
         require(msg.value == prezzo, "Prezzo errato");
-        proprietario.transfer(msg.value);
-        address venditore = proprietario;
-        proprietario = msg.sender;
+        address payable venditore = proprietario;
+        address payable acquirente = msg.sender;   
+        proprietario = acquirente;
+        venditore.transfer(msg.value);
         inVendita = false;
+        prezzo = 0;
         emit Acquisto(msg.sender, venditore, msg.value);
     }
     
