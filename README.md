@@ -32,10 +32,20 @@ base della frenesia tecnologica del momento.
 * [How secure is 256 bit security?](https://youtu.be/S9JGmA5_unY)
 * [Public Key Cryptography](https://youtu.be/GSIDS_lvRv4)
 * [Ever wonder how Bitcoin (and other cryptocurrencies) actually work?](https://www.youtube.com/watch?v=bBC-nXj3Ng4)
+* [Vitalik Buterin - Ethereum](https://www.youtube.com/watch?v=WSN5BaCzsbo&t=5s)
+* [Understanding the Ethereum Blockchain Protocol - Vitalik Buterin](https://youtu.be/gjwr-7PgpN8)
 
 ## Approfondimenti Pro
 
 * [Bitcoin Whitepaper](https://bitcoin.org/bitcoin.pdf?)
 * [Ethereum Whitepaper](https://github.com/ethereum/wiki/wiki/White-Paper)
+* [Nick Szabo's original 1996 smart contracts paper](http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html)
 * [Solidity Documentation](https://solidity.readthedocs.io/)
-* [Token ERC-721](http://erc721.org/)
+* [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md)
+* [ERC721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md)
+* [ERC721 examples](http://erc721.org/)
+
+## Extra
+
+* [What is the InterPlanetary File System?](https://themerkle.com/what-is-the-interplanetary-file-system/)
+* [hyperledger](https://www.hyperledger.org/wp-content/uploads/2018/08/HL_Whitepaper_IntroductiontoHyperledger.pdf)
