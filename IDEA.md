@@ -49,7 +49,7 @@ In **parole semplici** e con **esempi pratici**:
 * scriviamo un semplice smart contract in [Solidity](https://solidity.readthedocs.io/en/v0.5.6/)
 con [Remix](http://remix.ethereum.org)
 * sperimentiamo con lo smart contract
-* uno smart contract un po' più avanzato: **votiamo con la blockchain**
+* uno smart contract un po' più avanzato: **Il PRA con la Blockchain**
 
 **durata stimata**: `45-60 minuti`
 
@@ -65,9 +65,8 @@ In particolare, domandiamoci:
     * trascrizione
     * esecuzione
 * quali sono (alcune) problematiche che comporta
-    * che rimedi per le invalidità degli smart contract
+    * quali rimedi per le invalidità degli smart contract
     * i diversi piani tra *esecutività* nella blockchain ed *esecutività* delle sentenze
-* una rivoluzione nella PA?
 
 **durata stimata**: `30-45 minuti`
 
