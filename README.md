@@ -37,8 +37,18 @@ base della frenesia tecnologica del momento.
 
 ## Approfondimenti Pro
 
+### Bitcoin & Ethereum
 * [Bitcoin Whitepaper](https://bitcoin.org/bitcoin.pdf?)
 * [Ethereum Whitepaper](https://github.com/ethereum/wiki/wiki/White-Paper)
+* [How to create a Bitcoin wallet address from a private key](https://medium.freecodecamp.org/how-to-create-a-bitcoin-wallet-address-from-a-private-key-eca3ddd9c05f)
+
+### More on Consensus protocol
+* [Byzantine Fault Tolerance](https://medium.com/loom-network/understanding-blockchain-fundamentals-part-1-byzantine-fault-tolerance-245f46fe8419)
+* [Proof of Work & Proof of Stake](https://medium.com/loom-network/understanding-blockchain-fundamentals-part-2-proof-of-work-proof-of-stake-b6ae907c7edb)
+* [Delegated Proof of Stake](https://medium.com/loom-network/understanding-blockchain-fundamentals-part-3-delegated-proof-of-stake-b385a6b92ef)
+* [Hasgraph Consensus](https://www.swirlds.com/downloads/SWIRLDS-TR-2016-02.pdf)
+
+### Smart contracts
 * [Nick Szabo's original 1996 smart contracts paper](http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html)
 * [Solidity Documentation](https://solidity.readthedocs.io/)
 * [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md)
@@ -48,4 +58,4 @@ base della frenesia tecnologica del momento.
 ## Extra
 
 * [What is the InterPlanetary File System?](https://themerkle.com/what-is-the-interplanetary-file-system/)
-* [hyperledger](https://www.hyperledger.org/wp-content/uploads/2018/08/HL_Whitepaper_IntroductiontoHyperledger.pdf)
+* [Hyperledger](https://www.hyperledger.org/wp-content/uploads/2018/08/HL_Whitepaper_IntroductiontoHyperledger.pdf)
