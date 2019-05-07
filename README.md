@@ -13,7 +13,7 @@ base della frenesia tecnologica del momento.
 
 * [Presentazione Blockchain Live](https://www.icloud.com/keynote-live/sc:0PKlyChwHQ18YSPLZJTNJiIh7h7ZHl1mMDpocnRmRYWUrPw1WqPZsQqz5Dl4iibhn3b)
 * [Presentazione Smart Contracts Live](https://www.icloud.com/keynote-live/sc:0Wpv_jpNLCH2s_1StAoxgxrTzGL1PiHSW2m-UcZVpNtRygdCpLAjroS1qn2EPLpfW5-)
-* [Chat della conferenza]()
+* [Chat della conferenza](https://tlk.io/smartsiena)
 
 ## Risorse
 
