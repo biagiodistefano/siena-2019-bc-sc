@@ -171,21 +171,34 @@ function acquista(targa, prezzo, btn) {
 }
 
 
-window.addEventListener('load', () => {
-    console.log("loading");
-    if (typeof web3 !== 'undefined') {
-        web3 = new Web3(web3.currentProvider);
-        var ABI = [{ "constant": true, "inputs": [], "name": "pra", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "targheLUT", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "string" }], "name": "registro", "outputs": [{ "name": "targa", "type": "string" }, { "name": "proprietario", "type": "address" }, { "name": "prezzo", "type": "uint256" }, { "name": "inVendita", "type": "bool" }, { "name": "registrata", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "numeroAuto", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "targa", "type": "string" }, { "indexed": false, "name": "proprietario", "type": "address" }], "name": "Registrazione", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "compratore", "type": "address" }, { "indexed": false, "name": "venditore", "type": "address" }, { "indexed": false, "name": "prezzo", "type": "uint256" }], "name": "Acquisto", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "targa", "type": "string" }, { "indexed": false, "name": "prezzo", "type": "uint256" }], "name": "MessaInVendita", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "targa", "type": "string" }], "name": "NonInVendita", "type": "event" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }, { "name": "proprietario", "type": "address" }], "name": "nuovaImmatricolazione", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }, { "name": "prezzo", "type": "uint256" }], "name": "mettiInVendita", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }], "name": "togliDallaVendita", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }], "name": "acquista", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [], "name": "chiudi", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
-        ContractPRA = web3.eth.contract(ABI);
-        PRA = ContractPRA.at("0xD9c453dC11773866e4f89b65A34164ACfb4C2dab");
-        eventRegistrazione = PRA.Registrazione();
-        eventAcquisto = PRA.Acquisto();
-        eventMessaInVendita = PRA.MessaInVendita();
-        eventNonInVendita = PRA.NonInVendita();
-        loadPra();
-    } else {
-        alert("Devi installare MetaMask per usare questa dApp!")
+window.addEventListener('load', async () => {
+    if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+            // Request account access if needed
+            await ethereum.enable();            
+        } catch (error) {
+            // User denied account access...
+        }
     }
+    else if (window.web3) {
+        window.web3 = new Web3(web3.currentProvider);
+    }
+    else {
+        alert("Devi installare MetaMask per usare questa dApp!")
+        return; 
+    }
+
+    
+    var ABI = [{ "constant": true, "inputs": [], "name": "pra", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "targheLUT", "outputs": [{ "name": "", "type": "string" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "string" }], "name": "registro", "outputs": [{ "name": "targa", "type": "string" }, { "name": "proprietario", "type": "address" }, { "name": "prezzo", "type": "uint256" }, { "name": "inVendita", "type": "bool" }, { "name": "registrata", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "numeroAuto", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "targa", "type": "string" }, { "indexed": false, "name": "proprietario", "type": "address" }], "name": "Registrazione", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "compratore", "type": "address" }, { "indexed": false, "name": "venditore", "type": "address" }, { "indexed": false, "name": "prezzo", "type": "uint256" }], "name": "Acquisto", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "targa", "type": "string" }, { "indexed": false, "name": "prezzo", "type": "uint256" }], "name": "MessaInVendita", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "targa", "type": "string" }], "name": "NonInVendita", "type": "event" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }, { "name": "proprietario", "type": "address" }], "name": "nuovaImmatricolazione", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }, { "name": "prezzo", "type": "uint256" }], "name": "mettiInVendita", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }], "name": "togliDallaVendita", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [{ "name": "targa", "type": "string" }], "name": "acquista", "outputs": [], "payable": true, "stateMutability": "payable", "type": "function" }, { "constant": false, "inputs": [], "name": "chiudi", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }];
+    ContractPRA = web3.eth.contract(ABI);
+    PRA = ContractPRA.at("0xD9c453dC11773866e4f89b65A34164ACfb4C2dab");
+    eventRegistrazione = PRA.Registrazione();
+    eventAcquisto = PRA.Acquisto();
+    eventMessaInVendita = PRA.MessaInVendita();
+    eventNonInVendita = PRA.NonInVendita();
+    loadPra();
+    
 });
 
 
